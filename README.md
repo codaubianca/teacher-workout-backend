@@ -71,6 +71,11 @@ If you would like to suggest new functionality, open an Issue and mark it as a _
 - docker-compose >= v1.26.2
 - docker >= v20.10.7
 
+### Install .Net tools locally
+```
+dotnet tool restore
+```
+
 ### Start DB server
 ```
 cp .env.example .env
