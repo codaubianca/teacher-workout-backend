@@ -343,3 +343,9 @@ postgres_data
 # MacOS
 .DS_Store
 Thumbs.db
+
+# .Net config
+.config
+
+# .Net logs
+.logs

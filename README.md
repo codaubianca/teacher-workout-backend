@@ -71,11 +71,6 @@ If you would like to suggest new functionality, open an Issue and mark it as a _
 - docker-compose >= v1.26.2
 - docker >= v20.10.7
 
-### Install .Net tools locally
-```
-dotnet tool restore
-```
-
 ### Start DB server
 ```
 cp .env.example .env
@@ -92,6 +87,26 @@ dotnet ef database update --startup-project TeacherWorkout.Api/ --project Teache
 ### Start App
 ```
 dotnet run -p TeacherWorkout.Api
+```
+
+### Style Checks
+- install .Net tools: 
+    - Husky
+    - CSharpier
+
+- to check the issues within the files (this is performed in the pre-commit file):
+```
+dotnet husky run --group check_style
+```
+
+- if desired, format files with:
+```
+dotnet husky run --group format
+```
+
+- or perform individual checks/formatting by name (see .husky/task-runner.json for other checks/formatting options):
+```
+dotnet husky run --name lint_api
 ```
 
 ## FAQ

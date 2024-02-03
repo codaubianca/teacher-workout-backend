@@ -1,0 +1,56 @@
+{
+   "tasks": [
+      {
+         "name": "Welcome",
+         "output": "always",
+         "command": "bash",
+         "args": ["-c", "echo Nice work! 🥂"],
+         "windows": {
+            "command": "cmd",
+            "args": ["/c", "echo Nice work! 🥂"]
+         }
+      },
+      {
+         "name": "lint_api",
+         "command": "dotnet",
+         "group": "check_style",
+         "args": [ "format", "style", "--verify-no-changes",  "TeacherWorkout.sln", "--report", ".logs/format_api.json"],
+         "include": [ "**/*.cs" ]
+      },
+      {
+         "name": "lint_migrator",
+         "command": "dotnet",
+         "group": "check_style",
+         "args": [ "format", "style", "--verify-no-changes",  "TeacherWorkout.Migrator.sln", "--report", ".logs/format_migrator.json"],
+         "include": [ "**/*.cs" ]
+      },
+      {
+         "name": "lint_with_csharpifier",
+         "command": "dotnet",
+         "group": "check_style",
+         "args": [ "csharpier", "--check",  "."],
+         "include": [ "**/*.cs" ]
+      },
+      {
+         "name": "csharpify_files",
+         "command": "dotnet",
+         "group": "format",
+         "args": [ "csharpier", "."],
+         "include": [ "**/*.cs" ]
+      },
+      {
+         "name": "format_migrator",
+         "command": "dotnet",
+         "group": "format",
+         "args": [ "format", "style",  "TeacherWorkout.Migrator.sln"],
+         "include": [ "**/*.cs" ]
+      },
+      {
+         "name": "format_api",
+         "command": "dotnet",
+         "group": "format",
+         "args": [ "format", "style",  "TeacherWorkout.sln"],
+         "include": [ "**/*.cs" ]
+      }
+   ]
+}
