@@ -6,7 +6,7 @@ root = true
 [*.json]
 indent_size = 2
 
-# C# and Visual Basic files
+# C#
 [*.cs]
 charset = utf-8-bom
 insert_final_newline = true
