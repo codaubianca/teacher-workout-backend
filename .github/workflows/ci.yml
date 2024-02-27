@@ -35,7 +35,10 @@ jobs:
           dotnet-version: 8.0.x
       
       - name: Install dependencies
-        run: dotnet tool install --global dotnet-ef
+        run: | 
+          dotnet tool install --global dotnet-ef
+#          dotnet tool install --global csharpier
+#          dotnet tool install --global husky
       
       - name: Restore dependencies
         run: dotnet restore TeacherWorkout.sln
@@ -54,6 +57,9 @@ jobs:
           ConnectionStrings__IdentityDbConnectionString: Server=localhost;Port=5432;Database=teacher_workout_test;User Id=docker;Password=docker;
           SeedData: false
       
+#      - name: Style Checking
+#        run: dotnet husky run --group check_style
+
       - name: Run tests
         run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover TeacherWorkout.sln
         env:
